@@ -1,0 +1,6 @@
+@MyMicroserviceSaga.InventoryService_HostAddress = http://localhost:5104
+
+GET {{MyMicroserviceSaga.InventoryService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

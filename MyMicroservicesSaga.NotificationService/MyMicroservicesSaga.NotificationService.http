@@ -1,0 +1,6 @@
+@MyMicroservicesSaga.NotificationService_HostAddress = http://localhost:5037
+
+GET {{MyMicroservicesSaga.NotificationService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

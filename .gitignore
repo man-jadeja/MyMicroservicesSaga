@@ -1,0 +1,19 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/MyMicroserviceSaga.InventoryService/bin/Debug/net9.0
+/MyMicroserviceSaga.InventoryService/obj
+/MyMicroserviceSaga.PaymentService/bin/Debug/net9.0
+/MyMicroservicesSaga.AppHost/bin/Debug/net9.0
+/MyMicroservicesSaga.AppHost/obj
+/MyMicroservicesSaga.NotificationService/bin/Debug/net9.0
+/MyMicroservicesSaga.NotificationService/obj
+/MyMicroservicesSaga.OrderService/bin/Debug/net9.0
+/MyMicroservicesSaga.ServiceDefaults/bin/Debug/net9.0
+/MyMicroservicesSaga.ServiceDefaults/obj
+/MyMicroservicesSaga.SharedContract/bin/Debug/net9.0
+/MyMicroservicesSaga.SharedContract/obj
+/MyMicroserviceSaga.PaymentService/obj
+/MyMicroservicesSaga.OrderService/obj
