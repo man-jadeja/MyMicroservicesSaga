@@ -2,20 +2,20 @@
 using MyMicroservicesSaga.PaymentService.Data;
 using MyMicroservicesSaga.SharedContract;
 
-namespace MyMicroservicesSaga.PaymentService
+namespace MyMicroservicesSaga.PaymentService.Orchestration_Consumer
 {
-    public class OrderCreatedConsumer : IConsumer<OrderCreated>
+    public class ProcessPaymentConsumer : IConsumer<ProcessPaymentCommand>
     {
         private readonly PaymentDbContext _dbContext;
-        private readonly ILogger<OrderCreatedConsumer> _logger;
+        private readonly ILogger<ProcessPaymentConsumer> _logger;
 
-        public OrderCreatedConsumer(PaymentDbContext dbContext, ILogger<OrderCreatedConsumer> logger)
+        public ProcessPaymentConsumer(PaymentDbContext dbContext, ILogger<ProcessPaymentConsumer> logger)
         {
             _dbContext = dbContext;
             _logger = logger;
         }
 
-        public async Task Consume(ConsumeContext<OrderCreated> context)
+        public async Task Consume(ConsumeContext<ProcessPaymentCommand> context)
         {
             var message = context.Message;
             _logger.LogWarning("Processing payment for OrderId: {OrderId}", message.OrderId);
@@ -36,7 +36,7 @@ namespace MyMicroservicesSaga.PaymentService
                 await _dbContext.SaveChangesAsync();
 
                 // Publish PaymentSucceeded
-                await context.Publish(new PaymentSucceeded(message.OrderId,message.ProductName,message.Quantity,message.Amount));
+                await context.Publish(new PaymentSucceededEvent(message.OrderId,message.ProductName,message.Quantity,message.Amount));
                 _logger.LogWarning("Payment succeeded for Order {OrderId}", message.OrderId);
             }
             else
@@ -52,7 +52,7 @@ namespace MyMicroservicesSaga.PaymentService
                 await _dbContext.SaveChangesAsync();
 
                 // Publish PaymentFailed
-                await context.Publish(new PaymentFailed(message.OrderId, "Payment declined"));
+                await context.Publish(new PaymentFailedEvent(message.OrderId, "Payment declined"));
                 _logger.LogWarning("Payment failed for Order {OrderId}", message.OrderId);
             }
         }

@@ -15,6 +15,7 @@
     <ProjectReference Include="..\MyMicroserviceSaga.PaymentService\MyMicroservicesSaga.PaymentService.csproj" />
     <ProjectReference Include="..\MyMicroservicesSaga.NotificationService\MyMicroservicesSaga.NotificationService.csproj" />
     <ProjectReference Include="..\MyMicroservicesSaga.OrderService\MyMicroservicesSaga.OrderService.csproj" />
+    <ProjectReference Include="..\SagaOrchestratorService\SagaOrchestratorService.csproj" />
   </ItemGroup>
 
   <ItemGroup>

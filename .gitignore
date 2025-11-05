@@ -17,3 +17,5 @@
 /MyMicroservicesSaga.SharedContract/obj
 /MyMicroserviceSaga.PaymentService/obj
 /MyMicroservicesSaga.OrderService/obj
+/SagaOrchestratorService/bin/Debug/net9.0
+/SagaOrchestratorService/obj

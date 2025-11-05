@@ -1,7 +1,7 @@
 ﻿using MassTransit;
 using MyMicroservicesSaga.SharedContract;
 
-namespace MyMicroservicesSaga.NotificationService
+namespace MyMicroservicesSaga.NotificationService.Choreography_Consumer
 {
     public class OrderFailedConsumer : IConsumer<OrderFailed>
     {

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using MyMicroservicesSaga.InventoryService.Data;
 using MyMicroservicesSaga.SharedContract;
 
-namespace MyMicroservicesSaga.InventoryService
+namespace MyMicroservicesSaga.InventoryService.Choreography_Consumer
 {
     public class PaymentSucceededConsumer : IConsumer<PaymentSucceeded>
     {

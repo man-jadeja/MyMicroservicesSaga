@@ -3,20 +3,20 @@ using Microsoft.EntityFrameworkCore;
 using MyMicroservicesSaga.OrderService.Data;
 using MyMicroservicesSaga.SharedContract;
 
-namespace MyMicroservicesSaga.OrderService
+namespace MyMicroservicesSaga.OrderService.Orchestration_Consumer
 {
-    public class PaymentRolledBackConsumer : IConsumer<PaymentRolledBack>
+    public class RollbackOrderConsumer : IConsumer<RollbackOrderCommand>
     {
         private readonly OrderDbContext _dbContext;
-        private readonly ILogger<PaymentRolledBackConsumer> _logger;
+        private readonly ILogger<RollbackOrderConsumer> _logger;
 
-        public PaymentRolledBackConsumer(OrderDbContext dbContext, ILogger<PaymentRolledBackConsumer> logger)
+        public RollbackOrderConsumer(OrderDbContext dbContext, ILogger<RollbackOrderConsumer> logger)
         {
             _dbContext = dbContext;
             _logger = logger;
         }
 
-        public async Task Consume(ConsumeContext<PaymentRolledBack> context)
+        public async Task Consume(ConsumeContext<RollbackOrderCommand> context)
         {
             var message = context.Message;
             var order = await _dbContext.Orders.FirstOrDefaultAsync(o => o.Id == message.OrderId);
@@ -36,7 +36,7 @@ namespace MyMicroservicesSaga.OrderService
                 _logger.LogWarning("Order {OrderId} marked as failed and OrderFailed event published.", order.Id);
 
                 // Publish OrderFailed event (optional, for notifications)
-                await context.Publish(new OrderFailed(order.Id, message.Reason));
+                await context.Publish(new OrderFailedEvent(order.Id, message.Reason));
             }
             else
             {

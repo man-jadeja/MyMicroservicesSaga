@@ -1,18 +1,18 @@
 ﻿using MassTransit;
 using MyMicroservicesSaga.SharedContract;
 
-namespace MyMicroservicesSaga.NotificationService
+namespace MyMicroservicesSaga.NotificationService.Orchestration_Consumer
 {
-    public class InventoryAdjustedConsumer : IConsumer<InventoryAdjusted>
+    public class CompleteOrderConsumer : IConsumer<CompleteOrderCommand>
     {
-        private readonly ILogger<InventoryAdjustedConsumer> _logger;
+        private readonly ILogger<CompleteOrderConsumer> _logger;
 
-        public InventoryAdjustedConsumer(ILogger<InventoryAdjustedConsumer> logger)
+        public CompleteOrderConsumer(ILogger<CompleteOrderConsumer> logger)
         {
             _logger = logger;
         }
 
-        public Task Consume(ConsumeContext<InventoryAdjusted> context)
+        public Task Consume(ConsumeContext<CompleteOrderCommand> context)
         {
             var message = context.Message;
             _logger.LogWarning("Notification: Order {OrderId} completed successfully for product {ProductName} - {Quantity}.",

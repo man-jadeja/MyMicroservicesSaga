@@ -39,4 +39,8 @@ builder.AddProject<Projects.MyMicroservicesSaga_NotificationService>("notificati
     .WithReference(rabbit)
     .WaitFor(rabbit);
 
+builder.AddProject<Projects.SagaOrchestratorService>("sagaorchestratorservice")
+    .WithReference(rabbit)
+    .WaitFor(rabbit);
+
 builder.Build().Run();

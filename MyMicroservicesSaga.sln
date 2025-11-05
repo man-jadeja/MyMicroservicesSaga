@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyMicroservicesSaga.Notific
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyMicroservicesSaga.SharedContract", "MyMicroservicesSaga.SharedContract\MyMicroservicesSaga.SharedContract.csproj", "{59E3F66D-F910-40F2-A275-AB1475DF5273}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SagaOrchestratorService", "SagaOrchestratorService\SagaOrchestratorService.csproj", "{C1C8CBBB-0250-4A6A-B682-741350D0E3AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{59E3F66D-F910-40F2-A275-AB1475DF5273}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59E3F66D-F910-40F2-A275-AB1475DF5273}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59E3F66D-F910-40F2-A275-AB1475DF5273}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1C8CBBB-0250-4A6A-B682-741350D0E3AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1C8CBBB-0250-4A6A-B682-741350D0E3AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1C8CBBB-0250-4A6A-B682-741350D0E3AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1C8CBBB-0250-4A6A-B682-741350D0E3AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
