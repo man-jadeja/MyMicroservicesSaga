@@ -7,5 +7,7 @@ namespace MyMicroservicesSaga.InventoryService.Data
         public string ProductName { get; set; } = string.Empty;
 
         public int Stock { get; set; }
+
+        public int StockId { get; set;} = 0;
     }
 }

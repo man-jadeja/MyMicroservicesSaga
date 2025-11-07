@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyMicroservicesSaga.InventoryService.Data;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MyMicroservicesSaga.InventoryService.Migrations
 {
     [DbContext(typeof(InventoryDbContext))]
-    partial class InventoryDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251106113408_CheckDataMigration")]
+    partial class CheckDataMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,9 +44,6 @@ namespace MyMicroservicesSaga.InventoryService.Migrations
                     b.Property<int>("Stock")
                         .HasColumnType("integer");
 
-                    b.Property<int>("StockId")
-                        .HasColumnType("integer");
-
                     b.Property<Guid>("UpdatedBy")
                         .HasColumnType("uuid");
 
@@ -62,7 +62,6 @@ namespace MyMicroservicesSaga.InventoryService.Migrations
                             CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             ProductName = "Laptop",
                             Stock = 20,
-                            StockId = 0,
                             UpdatedBy = new Guid("22222222-2222-2222-2222-222222222222"),
                             UpdatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
                         },
@@ -73,7 +72,6 @@ namespace MyMicroservicesSaga.InventoryService.Migrations
                             CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             ProductName = "Mobile",
                             Stock = 50,
-                            StockId = 0,
                             UpdatedBy = new Guid("22222222-2222-2222-2222-222222222222"),
                             UpdatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
                         },
@@ -84,7 +82,6 @@ namespace MyMicroservicesSaga.InventoryService.Migrations
                             CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             ProductName = "Headphones",
                             Stock = 15,
-                            StockId = 0,
                             UpdatedBy = new Guid("22222222-2222-2222-2222-222222222222"),
                             UpdatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
                         },
@@ -95,7 +92,6 @@ namespace MyMicroservicesSaga.InventoryService.Migrations
                             CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             ProductName = "Tablet",
                             Stock = 30,
-                            StockId = 0,
                             UpdatedBy = new Guid("22222222-2222-2222-2222-222222222222"),
                             UpdatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
                         },
@@ -106,7 +102,6 @@ namespace MyMicroservicesSaga.InventoryService.Migrations
                             CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             ProductName = "Smartwatch",
                             Stock = 10,
-                            StockId = 0,
                             UpdatedBy = new Guid("22222222-2222-2222-2222-222222222222"),
                             UpdatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
                         });
